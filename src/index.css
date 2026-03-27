@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+@layer utilities {
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .animate-delay-1000 {
+    animation-delay: 1000ms;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2000ms;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4000ms;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Global body styles */
+body {
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(180deg, #0a0a15 0%, #0f1423 100%);
+  color: #e6eef8;
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a15;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3b82f6 0%, #8b5cf6 100%);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #2563eb 0%, #7c3aed 100%);
+}
+
+/* Selection styles */
+::selection {
+  background: linear-gradient(180deg, #3b82f6 0%, #8b5cf6 100%);
+  color: white;
+}
+
+/* Input focus styles */
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.9s ease-out;
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 0.9s ease-out;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 0.9s ease-out;
+}
+/* HERO RESPONSIVE FIX */
+@media (max-width: 768px) {
+  .hero-bg {
+    background-size: contain !important;
+    background-position: top !important;
+    background-attachment: scroll !important;
+    background-repeat: no-repeat !important;
+  }
+}
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes softPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 28px rgba(0, 255, 0, 0.55);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+  }
+}
+
+@keyframes softPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 14px rgba(255, 255, 255, 0.15);
+  }
+  50% {
+    transform: scale(1.06);
+    box-shadow: 0 0 22px rgba(255, 255, 255, 0.25);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 14px rgba(255, 255, 255, 0.15);
+  }
+}
+
+@keyframes tooltipFade {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+/* Fade-in + slide-up global */
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+/* Fade-in + slide-down para el navbar */
+@keyframes fadeSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
