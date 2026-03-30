@@ -62,3 +62,31 @@ export default {
   },
   plugins: [],
 };
+
+
+module.exports = {
+  theme: {
+    extend: {
+      animation: {
+        'float': 'float 4s ease-in-out infinite',
+        'soft-bounce': 'softBounce 3s ease-in-out infinite',
+        'float-code': 'floatCode 6s ease-in-out infinite',
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        softBounce: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-5px)' },
+        },
+        floatCode: {
+          '0%, 100%': { transform: 'translateY(0px) translateX(0px)', opacity: 0.7 },
+          '50%': { transform: 'translateY(-5px) translateX(5px)', opacity: 1 },
+        },
+      },
+    },
+  },
+}

@@ -1,27 +1,22 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { Section, SectionTitle, Button, Card } from "../ui";
-import { validateContactForm } from "../../utils/validation";
 import { generateWhatsAppMessage, openWhatsApp } from "../../utils/whatsapp";
 
 interface FormData {
   name: string;
-  email: string;
   project: string;
-  terms: boolean;
 }
 
 interface FormErrors {
   name?: string;
-  email?: string;
   project?: string;
 }
 
 export const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
-    email: "",
     project: "",
-    terms: false,
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -31,12 +26,11 @@ export const ContactSection: React.FC = () => {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    const { name, value, type } = e.target;
-    const checked = (e.target as HTMLInputElement).checked;
+    const { name, value } = e.target;
 
     setFormData((prev) => ({
       ...prev,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: value,
     }));
 
     // Clear error when user starts typing
@@ -51,20 +45,14 @@ export const ContactSection: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Validate
-    const { isValid, errors: validationErrors } = validateContactForm(
-      formData.name,
-      formData.email,
-      formData.project,
-    );
-
-    if (!isValid) {
-      setErrors(validationErrors);
+    // Validación simplificada
+    if (!formData.name.trim()) {
+      setErrors({ name: "Cuéntame cómo te llamo" });
       return;
     }
 
-    if (!formData.terms) {
-      alert("Debes aceptar los términos y condiciones");
+    if (!formData.project.trim()) {
+      setErrors({ project: "Cuéntame en qué puedo ayudarte" });
       return;
     }
 
@@ -72,13 +60,13 @@ export const ContactSection: React.FC = () => {
     setIsLoading(true);
     const message = generateWhatsAppMessage(
       formData.name,
-      formData.email,
+      "pendiente@validar",
       formData.project,
     );
     openWhatsApp("5355266801", message);
 
     setShowSuccess(true);
-    setFormData({ name: "", email: "", project: "", terms: false });
+    setFormData({ name: "", project: "" });
     setErrors({});
 
     setTimeout(() => {
@@ -90,20 +78,35 @@ export const ContactSection: React.FC = () => {
   return (
     <Section id="contact" bgColor="dark">
       <SectionTitle
-        title="Contáctame"
-        subtitle="¿Tienes un proyecto en mente? Me encantaría escuchar sobre él y colaborar contigo."
+        title="Hablemos de tu proyecto"
+        subtitle="Cuéntame qué necesitas. Te responderé en menos de 24 horas para conversar sin compromiso."
       />
 
       <div className="max-w-2xl mx-auto">
-        <Card variant="gradient" className="p-8 md:p-12">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Name */}
-            <div
-              className="animate-fade-in-up"
-              style={{ animationDelay: "0.1s" }}
-            >
-              <label className="block text-indigo-200 font-semibold mb-2">
-                Nombre completo
+        <Card variant="gradient" className="p-6 md:p-8">
+          {/* Mensaje de confianza */}
+          <div className="flex items-center justify-center gap-4 mb-6 text-sm">
+            <div className="flex items-center gap-1 text-indigo-300/70">
+              <i className="fas fa-bolt text-indigo-400 text-xs" />
+              <span>Respuesta rápida</span>
+            </div>
+            <div className="w-1 h-1 rounded-full bg-indigo-500/50" />
+            <div className="flex items-center gap-1 text-indigo-300/70">
+              <i className="fas fa-lock text-indigo-400 text-xs" />
+              <span>Sin compromiso</span>
+            </div>
+            <div className="w-1 h-1 rounded-full bg-indigo-500/50" />
+            <div className="flex items-center gap-1 text-indigo-300/70">
+              <i className="fas fa-clock text-indigo-400 text-xs" />
+              <span>Primera consulta gratuita</span>
+            </div>
+          </div>
+
+          <form onSubmit={handleSubmit} className="space-y-5">
+            {/* Nombre - Simplificado */}
+            <div>
+              <label className="block text-indigo-200 font-medium mb-2 text-sm">
+                ¿Cómo te llamo? <span className="text-pink-400">*</span>
               </label>
               <input
                 type="text"
@@ -111,89 +114,50 @@ export const ContactSection: React.FC = () => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Tu nombre"
-                className="w-full px-4 py-3 rounded-lg bg-indigo-900/20 border border-indigo-800/40 text-white placeholder-indigo-400/50 focus:outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 transition-all"
+                className="w-full px-4 py-3 rounded-xl bg-indigo-900/20 border border-indigo-800/40 text-white placeholder-indigo-400/50 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
               />
               {errors.name && (
-                <p className="text-red-400 text-sm mt-1">{errors.name}</p>
+                <p className="text-pink-400 text-xs mt-1">{errors.name}</p>
               )}
             </div>
 
-            {/* Email */}
-            <div
-              className="animate-fade-in-up"
-              style={{ animationDelay: "0.2s" }}
-            >
-              <label className="block text-indigo-200 font-semibold mb-2">
-                Correo electrónico
-              </label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="tu@email.com"
-                className="w-full px-4 py-3 rounded-lg bg-indigo-900/20 border border-indigo-800/40 text-white placeholder-indigo-400/50 focus:outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 transition-all"
-              />
-              {errors.email && (
-                <p className="text-red-400 text-sm mt-1">{errors.email}</p>
-              )}
-            </div>
-
-            {/* Project Description */}
-            <div
-              className="animate-fade-in-up"
-              style={{ animationDelay: "0.3s" }}
-            >
-              <label className="block text-indigo-200 font-semibold mb-2">
-                Descripción del proyecto
+            {/* Proyecto - Simplificado */}
+            <div>
+              <label className="block text-indigo-200 font-medium mb-2 text-sm">
+                ¿En qué puedo ayudarte? <span className="text-pink-400">*</span>
               </label>
               <textarea
                 name="project"
                 value={formData.project}
                 onChange={handleChange}
-                placeholder="Cuéntame sobre tu proyecto..."
-                rows={6}
-                className="w-full px-4 py-3 rounded-lg bg-indigo-900/20 border border-indigo-800/40 text-white placeholder-indigo-400/50 focus:outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 transition-all resize-none"
+                placeholder="Ej: Necesito una landing page para mi negocio, quiero una tienda online, tengo una idea para una app..."
+                rows={4}
+                className="w-full px-4 py-3 rounded-xl bg-indigo-900/20 border border-indigo-800/40 text-white placeholder-indigo-400/50 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all resize-none"
               />
               {errors.project && (
-                <p className="text-red-400 text-sm mt-1">{errors.project}</p>
+                <p className="text-pink-400 text-xs mt-1">{errors.project}</p>
               )}
             </div>
 
-            {/* Terms */}
-            <div
-              className="flex items-start gap-3 animate-fade-in-up"
-              style={{ animationDelay: "0.4s" }}
-            >
-              <input
-                type="checkbox"
-                id="terms"
-                name="terms"
-                checked={formData.terms}
-                onChange={handleChange}
-                className="mt-1 w-5 h-5 rounded border-indigo-800 accent-indigo-600"
-              />
-              <label htmlFor="terms" className="text-indigo-300/80 text-sm">
-                Acepto los términos y condiciones y la política de privacidad
-              </label>
-            </div>
-
-            {/* Success Message */}
+            {/* Mensaje de éxito */}
             {showSuccess && (
-              <div className="p-4 bg-emerald-900/30 border border-emerald-800/40 rounded-lg text-emerald-200 text-sm animate-fade-in">
-                ¡Mensaje enviado correctamente! Te redireccionaremos a WhatsApp
-                en un momento.
-              </div>
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="p-4 bg-emerald-900/30 border border-emerald-800/40 rounded-xl text-emerald-200 text-sm text-center"
+              >
+                <i className="fas fa-check-circle mr-2" />
+                ¡Gracias! Te redirijo a WhatsApp para que podamos conversar.
+              </motion.div>
             )}
 
-            {/* Submit Button */}
+            {/* Botón principal */}
             <Button
               type="submit"
               variant="primary"
               size="lg"
               disabled={isLoading}
-              className="w-full animate-fade-in-up"
-              style={{ animationDelay: "0.5s" }}
+              className="w-full rounded-xl"
               icon={
                 isLoading ? (
                   <i className="fas fa-spinner animate-spin" />
@@ -202,38 +166,55 @@ export const ContactSection: React.FC = () => {
                 )
               }
             >
-              {isLoading ? "Abriendo WhatsApp..." : "Enviar por WhatsApp"}
+              {isLoading ? "Abriendo WhatsApp..." : "Enviar mensaje"}
             </Button>
           </form>
         </Card>
 
-        {/* Alternative Contact */}
-        <div
-          className="mt-12 text-center animate-fade-in-up"
-          style={{ animationDelay: "0.6s" }}
+        {/* Contacto alternativo - Más cálido */}
+        <motion.div
+          className="mt-8 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <p className="text-indigo-300/70 mb-6">
-            O contáctame directamente en:
+          <p className="text-indigo-300/60 text-sm mb-4">
+            ¿Prefieres escribirme directamente?
           </p>
-          <div className="flex justify-center gap-4 flex-wrap">
+          <div className="flex justify-center gap-4">
             <a
               href="https://wa.me/5355266801"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition-all hover:scale-105"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-600/20 hover:bg-emerald-600/40 border border-emerald-500/30 text-emerald-300 font-medium transition-all hover:scale-105 text-sm"
             >
-              <i className="fab fa-whatsapp text-lg" />
+              <i className="fab fa-whatsapp" />
               WhatsApp
             </a>
             <a
               href="mailto:yendry@example.com"
-              className="flex items-center gap-2 px-6 py-3 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold transition-all hover:scale-105"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-indigo-600/20 hover:bg-indigo-600/40 border border-indigo-500/30 text-indigo-300 font-medium transition-all hover:scale-105 text-sm"
             >
-              <i className="fas fa-envelope text-lg" />
-              Email
+              <i className="fas fa-envelope" />
+              yendry@example.com
             </a>
           </div>
-        </div>
+        </motion.div>
+
+        {/* Frase de cierre - Genera confianza */}
+        <motion.div
+          className="mt-10 text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <p className="text-indigo-400/50 text-xs">
+            Sin compromiso. Primero conversamos, entiendo tu necesidad y luego
+            te doy una propuesta clara.
+          </p>
+        </motion.div>
       </div>
     </Section>
   );

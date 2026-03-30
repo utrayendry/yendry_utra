@@ -24,49 +24,56 @@ export const HeroSection: React.FC = () => {
         }}
       />
 
-      {/* Blobs */}
+      {/* Blobs decorativos */}
       <div className="absolute -top-20 -right-20 w-72 h-72 bg-indigo-600/20 rounded-full blur-3xl animate-blob" />
       <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-blob animation-delay-2000" />
 
-      {/* Content */}
+      {/* Content - Minimalista */}
       <div className="max-w-4xl mx-auto px-6 text-center relative z-20">
+        {/* Headline principal */}
         <h1
           className="text-5xl md:text-7xl font-extrabold leading-tight mb-6 animate-fade-in"
           style={{ animationDelay: "0.2s" }}
         >
+          <span className="block text-white">¿Tienes una idea?</span>
           <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-400">
-            Codificando el mañana,
-          </span>
-          <span className="block text-white">
-            hoy<span className="text-pink-400">.</span>
+            Conviértela en negocio
           </span>
         </h1>
 
+        {/* Subheadline - Una sola frase de beneficio */}
         <p
-          className="text-indigo-200/80 text-lg md:text-xl max-w-2xl mx-auto mb-16 leading-relaxed animate-fade-in"
+          className="text-indigo-200/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in"
           style={{ animationDelay: "0.4s" }}
         >
-          Desarrollo experiencias digitales modernas, rápidas y visualmente
-          impecables.
+          Webs rápidas que{" "}
+          <span className="text-indigo-300 font-medium">venden más</span> y
+          generan <span className="text-indigo-300 font-medium">confianza</span>{" "}
+          desde el primer clic.
         </p>
 
-        {/* CTA con pulso suave */}
+        {/* CTAs - Dos opciones claras */}
         <div
-          className="flex justify-center animate-fade-in"
+          className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in"
           style={{ animationDelay: "0.6s" }}
         >
           <Button
-            onClick={() => scrollToElement("projects")}
+            onClick={() => scrollToElement("why-me")}
             variant="primary"
             size="lg"
-            className="
-              shadow-lg shadow-indigo-500/20 hover:shadow-pink-500/30 
-              transition-all
-              animate-[softPulse_2.2s_ease-in-out_infinite]
-            "
-            icon={<i className="fas fa-briefcase" />}
+            className="shadow-lg shadow-indigo-500/20 hover:shadow-pink-500/30 transition-all"
+            icon={<i className="fas fa-bolt" />}
           >
-            Ver Proyectos
+            ¿Cómo te ayudo?
+          </Button>
+
+          <Button
+            onClick={() => scrollToElement("contact")}
+            variant="secondary"
+            size="lg"
+            icon={<i className="fas fa-comment" />}
+          >
+            Hablemos
           </Button>
         </div>
       </div>

@@ -1,4 +1,6 @@
 import type { Project, Skill, TimelineItem } from "../types";
+
+// Exportar SKILL_CATEGORIES desde su archivo
 export { SKILL_CATEGORIES } from "./skillCategories";
 
 export const PROJECTS: Project[] = [
@@ -9,6 +11,8 @@ export const PROJECTS: Project[] = [
       "Panel de administración con autenticación, roles, métricas y una API robusta construida con NestJS y Prisma sobre PostgreSQL.",
     technologies: ["React", "NestJS", "Prisma", "PostgreSQL"],
     category: "fullstack",
+    solutionType: "dashboard", // Agregado para el nuevo tipo
+    keyResult: "Gestión eficiente del negocio en tiempo real", // Beneficio destacado
     image:
       "https://images.unsplash.com/photo-1526378727979-4a07d8f8fd33?auto=format&fit=crop&w=1170&q=80",
     demoUrl: "#",
@@ -21,6 +25,8 @@ export const PROJECTS: Project[] = [
       "Aplicación de tareas en tiempo real con WebSocket, autenticación JWT, y notificaciones en tiempo real.",
     technologies: ["TypeScript", "WebSocket", "Node.js", "React"],
     category: "fullstack",
+    solutionType: "dashboard",
+    keyResult: "Equipos un 40% más productivos",
     image:
       "https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?auto=format&fit=crop&w=1170&q=80",
     demoUrl: "#",
@@ -33,6 +39,8 @@ export const PROJECTS: Project[] = [
       "Landing page moderna y responsiva con carrito dinámico, filtros avanzados y animations smooth.",
     technologies: ["React", "TypeScript", "TailwindCSS", "Vite"],
     category: "frontend",
+    solutionType: "landing",
+    keyResult: "Aumento del 35% en conversiones",
     image:
       "https://images.unsplash.com/photo-1460925895917-adf4e566fc84?auto=format&fit=crop&w=1170&q=80",
     demoUrl: "#",
@@ -45,6 +53,8 @@ export const PROJECTS: Project[] = [
       "API REST robusta con autenticación, validación, documentación Swagger y tests unitarios.",
     technologies: ["NestJS", "TypeScript", "PostgreSQL", "Swagger"],
     category: "backend",
+    solutionType: "corporate",
+    keyResult: "Integración fluida con frontend en tiempo récord",
     image:
       "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1170&q=80",
     demoUrl: "#",
@@ -52,11 +62,13 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "dashboard-analytics",
-    title: "Dashboard de Análitica",
+    title: "Dashboard de Analítica",
     description:
       "Dashboard interactivo con gráficos, filtros y reportes en tiempo real usando Chart.js.",
     technologies: ["React", "Chart.js", "TailwindCSS", "TypeScript"],
     category: "frontend",
+    solutionType: "dashboard",
+    keyResult: "Decisiones basadas en datos en tiempo real",
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1170&q=80",
     demoUrl: "#",
@@ -69,6 +81,8 @@ export const PROJECTS: Project[] = [
       "Plataforma e-commerce full-stack con carrito, pagos, órdenes y panel de administración.",
     technologies: ["React", "NestJS", "Stripe", "PostgreSQL", "Prisma"],
     category: "fullstack",
+    solutionType: "ecommerce",
+    keyResult: "+45% en ventas durante el primer mes",
     image:
       "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=1170&q=80",
     demoUrl: "#",
@@ -76,7 +90,7 @@ export const PROJECTS: Project[] = [
   },
 ];
 
-// ✅ Legacy SKILLS array - Mantener para compatibilidad
+// ✅ SKILLS array - Mantener para compatibilidad
 export const SKILLS: Skill[] = [
   // Frontend
   { id: "react", name: "React", category: "Frontend", proficiency: 95 },
@@ -152,7 +166,7 @@ export const SOCIAL_LINKS = {
 
 export const NAVIGATION_ITEMS = [
   { label: "Inicio", href: "home" },
-  { label: "Sobre mí", href: "about" },
+  { label: "¿Por qué yo?", href: "why-me" }, // Actualizado para coincidir con la nueva sección
   { label: "Proyectos", href: "projects" },
   { label: "Habilidades", href: "skills" },
   { label: "Contacto", href: "contact" },
