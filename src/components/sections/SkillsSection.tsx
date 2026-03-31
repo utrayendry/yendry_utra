@@ -85,7 +85,7 @@ const SkillCategoryCard: React.FC<{
           {categoryValue.description}
         </p>
 
-        {/* Todas las habilidades - ACTUALIZADO: usa iconName en lugar de icon */}
+        {/* Todas las habilidades */}
         <div className="space-y-2">
           {skills.map((skill, idx) => (
             <motion.div
@@ -98,7 +98,7 @@ const SkillCategoryCard: React.FC<{
               <SkillBar
                 name={skill.name}
                 proficiency={skill.proficiency}
-                iconName={skill.iconName} // ← CAMBIADO: icon → iconName
+                icon={skill.icon}
                 iconColor={skill.iconColor}
               />
             </motion.div>
