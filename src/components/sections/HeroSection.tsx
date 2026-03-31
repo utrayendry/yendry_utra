@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSmoothScroll } from "../../hooks/useSmoothScroll";
 import { Button } from "../ui";
 import img from "../../../public/images/1735482116425.jpg";
 
 export const HeroSection: React.FC = () => {
   const { scrollToElement } = useSmoothScroll();
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+
+  // Preload imagen crítica
+  useEffect(() => {
+    const image = new Image();
+    image.src = img;
+    image.onload = () => setIsImageLoaded(true);
+  }, []);
 
   return (
     <section
@@ -15,18 +23,26 @@ export const HeroSection: React.FC = () => {
         animate-[fadeSlideUp_0.8s_ease-out]
       "
     >
-      {/* Background */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          background: `linear-gradient(135deg, rgba(6, 6, 10, 0.88), rgba(6, 6, 10, 0.88)), url(${img}) center/cover no-repeat`,
-          backgroundAttachment: "fixed",
-        }}
-      />
+      {/* Background optimizado - sin background-attachment: fixed */}
+      <div className="absolute inset-0 z-0">
+        {/* Imagen con lazy loading optimizado */}
+        <img
+          src={img}
+          alt="Background"
+          className={`w-full h-full object-cover transition-opacity duration-500 ${
+            isImageLoaded ? "opacity-100" : "opacity-0"
+          }`}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+        />
+        {/* Overlay en capa separada para mejor rendimiento */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a15]/88 to-[#0a0a15]/88" />
+      </div>
 
-      {/* Blobs decorativos */}
-      <div className="absolute -top-20 -right-20 w-72 h-72 bg-indigo-600/20 rounded-full blur-3xl animate-blob" />
-      <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-blob animation-delay-2000" />
+      {/* Blobs decorativos - optimizados para móvil */}
+      <div className="absolute -top-20 -right-20 w-72 h-72 bg-indigo-600/20 rounded-full blur-3xl animate-blob hidden md:block will-change-transform" />
+      <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-blob animation-delay-2000 hidden md:block will-change-transform" />
 
       {/* Content - Minimalista */}
       <div className="max-w-4xl mx-auto px-6 text-center relative z-20">

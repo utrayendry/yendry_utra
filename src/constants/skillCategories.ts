@@ -11,7 +11,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "C++",
         category: "Lenguajes de Programación",
         proficiency: 60,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/cplusplus.svg",
+        iconName: "C++",
         iconColor: "#00599C",
       },
       {
@@ -19,7 +19,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "Java",
         category: "Lenguajes de Programación",
         proficiency: 99,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/java.svg",
+        iconName: "Java",
         iconColor: "#007396",
       },
       {
@@ -27,7 +27,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "HTML",
         category: "Lenguajes de Programación",
         proficiency: 100,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/html5.svg",
+        iconName: "HTML",
         iconColor: "#E34C26",
       },
       {
@@ -35,7 +35,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "CSS",
         category: "Lenguajes de Programación",
         proficiency: 100,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/css3.svg",
+        iconName: "CSS",
         iconColor: "#1572B6",
       },
       {
@@ -43,7 +43,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "JavaScript",
         category: "Lenguajes de Programación",
         proficiency: 95,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/javascript.svg",
+        iconName: "JavaScript",
         iconColor: "#F7DF1E",
       },
       {
@@ -51,7 +51,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "TypeScript",
         category: "Lenguajes de Programación",
         proficiency: 95,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/typescript.svg",
+        iconName: "TypeScript",
         iconColor: "#3178C6",
       },
       {
@@ -59,7 +59,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "Python",
         category: "Lenguajes de Programación",
         proficiency: 70,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/python.svg",
+        iconName: "Python",
         iconColor: "#3776AB",
       },
       {
@@ -67,7 +67,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "SQL",
         category: "Lenguajes de Programación",
         proficiency: 75,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/sqlite.svg",
+        iconName: "SQL",
         iconColor: "#003B57",
       },
     ],
@@ -82,7 +82,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "React",
         category: "Frameworks & Librerías",
         proficiency: 95,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/react.svg",
+        iconName: "React",
         iconColor: "#61DAFB",
       },
       {
@@ -90,7 +90,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "Next.js",
         category: "Frameworks & Librerías",
         proficiency: 80,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/nextdotjs.svg",
+        iconName: "Next.js",
         iconColor: "#000000",
       },
       {
@@ -98,7 +98,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "TailwindCSS",
         category: "Frameworks & Librerías",
         proficiency: 95,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/tailwindcss.svg",
+        iconName: "TailwindCSS",
         iconColor: "#06B6D4",
       },
       {
@@ -106,7 +106,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "Bootstrap",
         category: "Frameworks & Librerías",
         proficiency: 85,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/bootstrap.svg",
+        iconName: "Bootstrap",
         iconColor: "#7952B3",
       },
       {
@@ -114,7 +114,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "Node.js",
         category: "Frameworks & Librerías",
         proficiency: 95,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/nodedotjs.svg",
+        iconName: "Node.js",
         iconColor: "#68A063",
       },
       {
@@ -122,7 +122,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "Express",
         category: "Frameworks & Librerías",
         proficiency: 90,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/express.svg",
+        iconName: "Express",
         iconColor: "#000000",
       },
       {
@@ -130,7 +130,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "NestJS",
         category: "Frameworks & Librerías",
         proficiency: 98,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/nestjs.svg",
+        iconName: "NestJS",
         iconColor: "#EA2845",
       },
     ],
@@ -145,7 +145,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "REST API",
         category: "Backend & APIs",
         proficiency: 96,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/fastapi.svg",
+        iconName: "REST API",
         iconColor: "#009688",
       },
       {
@@ -153,7 +153,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "JWT Authentication",
         category: "Backend & APIs",
         proficiency: 100,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/jsonwebtokens.svg",
+        iconName: "JWT Authentication",
         iconColor: "#000000",
       },
       {
@@ -161,7 +161,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "Microservicios",
         category: "Backend & APIs",
         proficiency: 85,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/kubernetes.svg",
+        iconName: "Microservicios",
         iconColor: "#326CE5",
       },
       {
@@ -169,7 +169,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "WebSockets",
         category: "Backend & APIs",
         proficiency: 65,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/socketdotio.svg",
+        iconName: "WebSockets",
         iconColor: "#010101",
       },
     ],
@@ -184,7 +184,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "PostgreSQL",
         category: "Bases de Datos & ORMs",
         proficiency: 97,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/postgresql.svg",
+        iconName: "PostgreSQL",
         iconColor: "#336791",
       },
       {
@@ -192,7 +192,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "MySQL",
         category: "Bases de Datos & ORMs",
         proficiency: 60,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/mysql.svg",
+        iconName: "MySQL",
         iconColor: "#00758F",
       },
       {
@@ -200,7 +200,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "MongoDB",
         category: "Bases de Datos & ORMs",
         proficiency: 65,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/mongodb.svg",
+        iconName: "MongoDB",
         iconColor: "#13AA52",
       },
       {
@@ -208,7 +208,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "Prisma ORM",
         category: "Bases de Datos & ORMs",
         proficiency: 98,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/prisma.svg",
+        iconName: "Prisma ORM",
         iconColor: "#2D3748",
       },
       {
@@ -216,7 +216,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "TypeORM",
         category: "Bases de Datos & ORMs",
         proficiency: 90,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/typescript.svg",
+        iconName: "TypeORM",
         iconColor: "#FEA625",
       },
     ],
@@ -231,7 +231,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "Git",
         category: "Herramientas & DevOps",
         proficiency: 95,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/git.svg",
+        iconName: "Git",
         iconColor: "#F1502F",
       },
       {
@@ -239,7 +239,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "GitHub",
         category: "Herramientas & DevOps",
         proficiency: 95,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg",
+        iconName: "GitHub",
         iconColor: "#181717",
       },
       {
@@ -247,7 +247,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "Docker",
         category: "Herramientas & DevOps",
         proficiency: 60,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/docker.svg",
+        iconName: "Docker",
         iconColor: "#2496ED",
       },
       {
@@ -255,7 +255,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "Vite",
         category: "Herramientas & DevOps",
         proficiency: 98,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/vite.svg",
+        iconName: "Vite",
         iconColor: "#646CFF",
       },
       {
@@ -263,7 +263,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "Postman",
         category: "Herramientas & DevOps",
         proficiency: 90,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/postman.svg",
+        iconName: "Postman",
         iconColor: "#FF6C02",
       },
     ],
@@ -278,7 +278,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "SEO",
         category: "Otras Tecnologías & Conocimientos",
         proficiency: 85,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/googleanalytics.svg",
+        iconName: "SEO",
         iconColor: "#E37400",
       },
       {
@@ -286,7 +286,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "Posicionamiento",
         category: "Otras Tecnologías & Conocimientos",
         proficiency: 90,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/chartline.svg",
+        iconName: "Posicionamiento",
         iconColor: "#00D084",
       },
       {
@@ -294,7 +294,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "Accesibilidad",
         category: "Otras Tecnologías & Conocimientos",
         proficiency: 95,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/accessibility.svg",
+        iconName: "Accesibilidad",
         iconColor: "#0078D4",
       },
       {
@@ -302,7 +302,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "UX Design",
         category: "Otras Tecnologías & Conocimientos",
         proficiency: 95,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/figma.svg",
+        iconName: "UX Design",
         iconColor: "#1ABCFE",
       },
       {
@@ -310,7 +310,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "UI Design",
         category: "Otras Tecnologías & Conocimientos",
         proficiency: 98,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/adobe.svg",
+        iconName: "UI Design",
         iconColor: "#DA291C",
       },
       {
@@ -318,7 +318,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         name: "Prompt Engineering",
         category: "Otras Tecnologías & Conocimientos",
         proficiency: 90,
-        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/openai.svg",
+        iconName: "Prompt Engineering",
         iconColor: "#412991",
       },
     ],

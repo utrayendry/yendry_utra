@@ -9,8 +9,7 @@ export interface Project {
   demoUrl?: string;
   githubUrl?: string;
   solutionType: "ecommerce" | "landing" | "dashboard" | "corporate";
-  // Mantén category si lo usas en otro lado
-  category?: string;
+  category?: string; // 'frontend' | 'backend' | 'fullstack'
 }
 
 export interface Skill {
@@ -18,14 +17,14 @@ export interface Skill {
   name: string;
   category: string;
   proficiency: number;
-  icon?: string;
-  iconColor?: string;
+  iconName?: string; // ← Cambiado: nombre del icono para Lucide-react
+  iconColor?: string; // Color del icono (ej: "#61DAFB")
 }
 
 export interface SkillCategory {
   id: string;
   name: string;
-  icon: string;
+  icon: string; // Emoji o ícono de la categoría (ej: "📝")
   skills: Skill[];
 }
 

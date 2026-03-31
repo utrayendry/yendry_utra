@@ -4,5 +4,3 @@ export { Card } from "./Card";
 export { Section } from "./Section";
 export { SectionTitle } from "./SectionTitle";
 export { SkillBar } from "./SkillBar";
-export { SkillRadarChart } from "./SkillRadarChart";
-export { SkillBarChart } from "./SkillBarChart";
