@@ -4,7 +4,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     id: "languages",
     name: "Lenguajes de Programación",
-    icon: "📝",
+
     skills: [
       {
         id: "cpp",
@@ -75,7 +75,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     id: "frameworks",
     name: "Frameworks & Librerías",
-    icon: "🧩",
+
     skills: [
       {
         id: "react",
@@ -138,7 +138,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     id: "backend",
     name: "Backend & APIs",
-    icon: "🔌",
+
     skills: [
       {
         id: "restapi",
@@ -177,7 +177,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     id: "databases",
     name: "Bases de Datos & ORMs",
-    icon: "💾",
+
     skills: [
       {
         id: "postgresql",
@@ -224,7 +224,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     id: "devtools",
     name: "Herramientas & DevOps",
-    icon: "🛠️",
+
     skills: [
       {
         id: "git",
@@ -266,12 +266,28 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/postman.svg",
         iconColor: "#FF6C02",
       },
+      {
+        id: "vercel",
+        name: "Vercel",
+        category: "Herramientas & DevOps",
+        proficiency: 85, // Asigna un porcentaje según tu nivel de experiencia
+        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/vercel.svg",
+        iconColor: "#FFFFFF", // Color blanco para Vercel (o el que prefieras)
+      },
+      {
+        id: "render",
+        name: "Render",
+        category: "Herramientas & DevOps",
+        proficiency: 50, // Asigna un porcentaje según tu nivel de experiencia
+        icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/render.svg",
+        iconColor: "#46E3B7", // Color característico de Render
+      },
     ],
   },
   {
     id: "other",
     name: "Otras Tecnologías & Conocimientos",
-    icon: "✨",
+
     skills: [
       {
         id: "seo",

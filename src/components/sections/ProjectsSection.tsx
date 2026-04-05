@@ -13,25 +13,25 @@ const CATEGORIES = [
   {
     id: "all",
     label: "Todos los proyectos",
-    icon: "✨",
+
     description: "Ver todo mi trabajo",
   },
   {
     id: "fullstack",
     label: "Plataformas completas",
-    icon: "🏗️",
+
     description: "Sistemas que escalan con tu negocio",
   },
   {
     id: "frontend",
     label: "Experiencias digitales",
-    icon: "🎨",
+
     description: "Interfaces que convierten",
   },
   {
     id: "backend",
     label: "APIs y servicios",
-    icon: "⚙️",
+
     description: "Estructura robusta y segura",
   },
 ];
@@ -73,19 +73,19 @@ const ProjectCard = React.memo<{ project: Project; index: number }>(
   ({ project, index }) => {
     const categoryConfig = {
       fullstack: {
-        badge: "🏗️ Full-Stack",
+        badge: "Full-Stack",
         gradient: "from-emerald-500/20 to-teal-500/20",
         benefit: "Solución completa y escalable",
         result: "Reducción de costos de mantenimiento",
       },
       frontend: {
-        badge: "🎨 Frontend",
+        badge: "Frontend",
         gradient: "from-blue-500/20 to-cyan-500/20",
         benefit: "Experiencia de usuario premium",
         result: "Aumento en conversión y retención",
       },
       backend: {
-        badge: "⚙️ Backend",
+        badge: "Backend",
         gradient: "from-purple-500/20 to-pink-500/20",
         benefit: "API robusta y segura",
         result: "Integración fluida con otros sistemas",
@@ -252,7 +252,6 @@ export const ProjectsSection: React.FC = () => {
             }`}
           >
             <div className="flex items-center gap-2">
-              <span className="text-lg">{cat.icon}</span>
               <span className="font-medium text-sm md:text-base">
                 {cat.label}
               </span>

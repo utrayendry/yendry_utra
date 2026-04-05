@@ -34,11 +34,10 @@ const CATEGORY_VALUES = {
 
 // Componente para cada categoría
 const SkillCategoryCard: React.FC<{
-  categoryIcon: string;
   categoryName: string;
   skills: (typeof SKILL_CATEGORIES)[0]["skills"];
   index: number;
-}> = ({ categoryIcon, categoryName, skills, index }) => {
+}> = ({ categoryName, skills, index }) => {
   // Calcular promedio de proficiencia
   const categoryAverage = Math.round(
     skills.reduce((acc, skill) => acc + skill.proficiency, 0) / skills.length,
@@ -64,7 +63,6 @@ const SkillCategoryCard: React.FC<{
         {/* Encabezado */}
         <div className="flex items-center justify-between gap-2 mb-3">
           <div className="flex items-center gap-2 min-w-0">
-            <div className="text-2xl sm:text-3xl shrink-0">{categoryIcon}</div>
             <div className="min-w-0">
               <h3 className="text-base sm:text-lg font-bold bg-gradient-to-r from-indigo-300 to-pink-300 bg-clip-text text-transparent truncate">
                 {categoryName}
@@ -136,7 +134,6 @@ export const SkillsSection: React.FC = () => {
         {categoriesData.map((category, index) => (
           <SkillCategoryCard
             key={category.id}
-            categoryIcon={category.icon}
             categoryName={category.name}
             skills={category.skills}
             index={index}
