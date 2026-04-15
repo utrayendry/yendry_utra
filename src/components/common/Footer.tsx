@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
 import { useSmoothScroll } from "../../hooks/useSmoothScroll";
+import { NAVIGATION_ITEMS } from "../../constants/index";
 
 // SVGs optimizados - Memoizados para evitar re-renders
 const GitHubIcon = React.memo(
@@ -59,7 +60,7 @@ export const Footer: React.FC = () => {
   const { scrollToTop, scrollToElement } = useSmoothScroll();
   const currentYear = new Date().getFullYear();
 
-  // Memoizar handlers
+  // Memoise handlers
   const handleScrollToElement = useCallback(
     (href: string) => {
       scrollToElement(href);
@@ -70,14 +71,6 @@ export const Footer: React.FC = () => {
   const handleScrollToTop = useCallback(() => {
     scrollToTop();
   }, [scrollToTop]);
-
-  const navigationItems = [
-    { label: "Inicio", href: "home" },
-    { label: "¿Por qué yo?", href: "why-me" },
-    { label: "Proyectos", href: "projects" },
-    { label: "Habilidades", href: "skills" },
-    { label: "Contacto", href: "contact" },
-  ];
 
   const socialLinks = [
     {
@@ -104,7 +97,7 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-b from-[#0a0a15] to-[#050508] border-t border-indigo-800/30">
+    <footer className="bg-linear-to-b from-[#0a0a15] to-[#050508] border-t border-indigo-800/30">
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-9">
           {/* Brand */}
@@ -118,7 +111,7 @@ export const Footer: React.FC = () => {
                 style={{ fontFamily: "'Clash Display', sans-serif" }}
               >
                 Yendry
-                <span className="text-pink-400 group-hover:text-pink-300 transition-colors">
+                <span className="text-indigo-400 group-hover:text-indigo-300 transition-colors">
                   .
                 </span>
               </span>
@@ -127,7 +120,7 @@ export const Footer: React.FC = () => {
               Desarrollador Web Full Stack. Experiencias digitales modernas y
               funcionales.
             </p>
-            <p className="text-indigo-400/60 text-xs italic border-l-2 border-pink-500/50 pl-2">
+            <p className="text-indigo-400/60 text-xs italic border-l-2 border-indigo-500/50 pl-2">
               "Codificando el mañana, hoy"
             </p>
           </div>
@@ -138,7 +131,7 @@ export const Footer: React.FC = () => {
               Navegación
             </h4>
             <ul className="space-y-2 text-sm">
-              {navigationItems.map((item) => (
+              {NAVIGATION_ITEMS.map((item) => (
                 <li key={item.href}>
                   <button
                     onClick={() => handleScrollToElement(item.href)}
@@ -161,7 +154,7 @@ export const Footer: React.FC = () => {
             </p>
             <button
               onClick={() => handleScrollToElement("contact")}
-              className="px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-pink-600 rounded-lg text-white text-sm font-medium hover:scale-105 transition-all shadow-lg shadow-indigo-500/25"
+              className="px-5 py-2.5 bg-linear-to-r from-indigo-600 to-pink-600 rounded-lg text-white text-sm font-medium hover:scale-105 transition-all shadow-lg shadow-indigo-500/25"
             >
               Contáctame
             </button>

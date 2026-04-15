@@ -165,9 +165,9 @@ export const SOCIAL_LINKS = {
 };
 
 export const NAVIGATION_ITEMS = [
-  { label: "Inicio", href: "home" },
-  { label: "¿Por qué yo?", href: "why-me" }, // Actualizado para coincidir con la nueva sección
+  { label: "¿Por qué yo?", href: "why-me" },
   { label: "Proyectos", href: "projects" },
   { label: "Habilidades", href: "skills" },
+  { label: "Servicios", href: "services" },
   { label: "Contacto", href: "contact" },
 ];

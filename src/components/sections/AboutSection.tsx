@@ -6,7 +6,7 @@ export const AboutSection: React.FC = () => {
   return (
     <Section id="why-me" bgColor="dark" className="relative overflow-hidden">
       {/* Fondo diferenciado */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/30 via-purple-950/20 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-br from-indigo-950/30 via-purple-950/20 to-transparent" />
       <div className="absolute top-40 right-20 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl" />
       <div className="absolute bottom-40 left-20 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl" />
 
@@ -22,11 +22,11 @@ export const AboutSection: React.FC = () => {
           {/* COLUMNA IZQUIERDA: Foto optimizada para móvil */}
           <div className="relative group order-1 lg:order-1">
             {/* Glow animado detrás de la foto */}
-            <div className="absolute -inset-3 md:-inset-4 bg-gradient-to-r from-indigo-600 to-purple-500 rounded-2xl md:rounded-3xl opacity-20 blur-xl group-hover:opacity-40 transition-all duration-500 group-hover:blur-2xl" />
+            <div className="absolute -inset-3 md:-inset-4 bg-linear-to-r from-indigo-600 to-purple-500 rounded-2xl md:rounded-3xl opacity-20 blur-xl group-hover:opacity-40 transition-all duration-500 group-hover:blur-2xl" />
 
             <Card
               variant="glass"
-              className="relative overflow-hidden rounded-xl md:rounded-2xl bg-gradient-to-br from-indigo-950/60 to-purple-950/60 backdrop-blur-sm"
+              className="relative overflow-hidden rounded-xl md:rounded-2xl bg-linear-to-br from-indigo-950/60 to-purple-950/60 backdrop-blur-sm"
             >
               {/* Contenedor de foto - Ancho completo en móvil */}
               <div className="relative w-full overflow-hidden">
@@ -41,11 +41,11 @@ export const AboutSection: React.FC = () => {
                 />
 
                 {/* Overlay sutil en hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-indigo-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-linear-to-t from-indigo-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
 
               {/* Frase de compromiso */}
-              <div className="p-4 md:p-6 text-center border-t border-indigo-500/20 bg-gradient-to-r from-indigo-950/40 to-purple-950/40">
+              <div className="p-4 md:p-6 text-center border-t border-indigo-500/20 bg-linear-to-r from-indigo-950/40 to-purple-950/40">
                 <p className="text-indigo-300 text-[10px] md:text-xs uppercase tracking-wider mb-1 md:mb-2">
                   💡 Mi compromiso
                 </p>
@@ -61,9 +61,9 @@ export const AboutSection: React.FC = () => {
           <div className="flex flex-col gap-4 md:gap-5 order-2 lg:order-2">
             {/* Beneficio 1 */}
             <div className="group cursor-default">
-              <div className="p-4 md:p-5 rounded-xl bg-gradient-to-r from-indigo-900/40 to-purple-900/40 border border-indigo-500/20 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10">
+              <div className="p-4 md:p-5 rounded-xl bg-linear-to-r from-indigo-900/40 to-purple-900/40 border border-indigo-500/20 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10">
                 <div className="flex items-start gap-3 md:gap-4">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:bg-indigo-500/30 transition-all duration-300">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-indigo-500/30 transition-all duration-300">
                     <span className="text-xl md:text-2xl">🎯</span>
                   </div>
                   <div className="flex-1">
@@ -82,9 +82,9 @@ export const AboutSection: React.FC = () => {
 
             {/* Beneficio 2 */}
             <div className="group cursor-default">
-              <div className="p-4 md:p-5 rounded-xl bg-gradient-to-r from-indigo-900/40 to-purple-900/40 border border-indigo-500/20 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10">
+              <div className="p-4 md:p-5 rounded-xl bg-linear-to-r from-indigo-900/40 to-purple-900/40 border border-indigo-500/20 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10">
                 <div className="flex items-start gap-3 md:gap-4">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-pink-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:bg-pink-500/30 transition-all duration-300">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-pink-500/20 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-pink-500/30 transition-all duration-300">
                     <span className="text-xl md:text-2xl">📈</span>
                   </div>
                   <div className="flex-1">
@@ -115,9 +115,9 @@ export const AboutSection: React.FC = () => {
 
             {/* Beneficio 3 */}
             <div className="group cursor-default">
-              <div className="p-4 md:p-5 rounded-xl bg-gradient-to-r from-indigo-900/40 to-purple-900/40 border border-indigo-500/20 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10">
+              <div className="p-4 md:p-5 rounded-xl bg-linear-to-r from-indigo-900/40 to-purple-900/40 border border-indigo-500/20 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10">
                 <div className="flex items-start gap-3 md:gap-4">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-purple-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:bg-purple-500/30 transition-all duration-300">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-purple-500/20 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-purple-500/30 transition-all duration-300">
                     <span className="text-xl md:text-2xl">🔧</span>
                   </div>
                   <div className="flex-1">
@@ -221,7 +221,7 @@ export const AboutSection: React.FC = () => {
                 detail: "a tiempo y presupuesto",
               },
               {
-                value: "8+",
+                value: "10+",
                 label: "Clientes satisfechos",
                 icon: "🤝",
                 detail: "que repiten o recomiendan",
@@ -257,7 +257,7 @@ export const AboutSection: React.FC = () => {
 
         {/* CIERRE: Llamada a la acción */}
         <div className="text-center">
-          <div className="inline-block p-5 md:p-8 bg-gradient-to-r from-indigo-900/40 to-purple-900/40 rounded-xl md:rounded-2xl border border-indigo-500/20 backdrop-blur-sm max-w-2xl mx-auto hover:border-indigo-500/40 transition-all duration-300">
+          <div className="inline-block p-5 md:p-8 bg-linear-to-r from-indigo-900/40 to-purple-900/40 rounded-xl md:rounded-2xl border border-indigo-500/20 backdrop-blur-sm max-w-2xl mx-auto hover:border-indigo-500/40 transition-all duration-300">
             <div className="text-4xl md:text-5xl mb-3 md:mb-4 animate-pulse-slow">
               🤝
             </div>
@@ -274,7 +274,7 @@ export const AboutSection: React.FC = () => {
                 if (contactSection)
                   contactSection.scrollIntoView({ behavior: "smooth" });
               }}
-              className="px-6 md:px-8 py-2.5 md:py-3 bg-gradient-to-r from-indigo-600 to-pink-500 rounded-lg text-white font-medium text-sm md:text-base hover:scale-105 transition-transform shadow-lg hover:shadow-indigo-500/25"
+              className="px-6 md:px-8 py-2.5 md:py-3 bg-linear-to-r from-indigo-600 to-pink-500 rounded-lg text-white font-medium text-sm md:text-base hover:scale-105 transition-transform shadow-lg hover:shadow-indigo-500/25"
             >
               📲 Hablemos de tu proyecto
             </button>

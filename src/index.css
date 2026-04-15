@@ -148,21 +148,6 @@ textarea:focus {
 @keyframes softPulse {
   0% {
     transform: scale(1);
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
-  }
-  50% {
-    transform: scale(1.08);
-    box-shadow: 0 0 28px rgba(0, 255, 0, 0.55);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
-  }
-}
-
-@keyframes softPulse {
-  0% {
-    transform: scale(1);
     box-shadow: 0 0 14px rgba(255, 255, 255, 0.15);
   }
   50% {

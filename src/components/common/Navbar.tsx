@@ -60,6 +60,7 @@ const LinkedInIcon = React.memo(
 export const Navbar: React.FC = () => {
   const { scrollToElement } = useSmoothScroll();
   const { isNavbarScrolled } = useScrollProgress();
+  //to open and close the hamburger menu
   const [isOpen, setIsOpen] = useState(false);
 
   const navRef = useRef<HTMLDivElement | null>(null);
@@ -152,7 +153,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      {/* Overlay optimizado - Solo se renderiza cuando isOpen es true */}
+      {/* Overlay optimized - only rendering when isOpen is true */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black/80 backdrop-blur-md z-40 transition-all duration-300 md:hidden"
@@ -170,9 +171,9 @@ export const Navbar: React.FC = () => {
         } ${isOpen ? "z-30" : "z-50"}`}
         style={{ pointerEvents: isOpen ? "none" : "auto" }}
       >
-        {/* Borde inferior animado */}
+        {/*  Inferior animated Border*/}
         <span
-          className="absolute bottom-0 left-0 h-[2px] transition-all duration-500 ease-out"
+          className="absolute bottom-0 left-0 h-0.5 transition-all duration-500 ease-out"
           style={{
             width: "100%",
             background:
@@ -199,7 +200,7 @@ export const Navbar: React.FC = () => {
               style={{ fontFamily: "'Clash Display', sans-serif" }}
             >
               Yendry
-              <span className="text-pink-400 group-hover:text-pink-300 transition-colors">
+              <span className="text-indigo-400 group-hover:text-indigo-300 transition-colors">
                 .
               </span>
             </span>
@@ -208,7 +209,7 @@ export const Navbar: React.FC = () => {
           {/* Desktop Navigation */}
           <div
             ref={navRef}
-            className="hidden md:flex items-center space-x-10 relative"
+            className="hidden md:flex items-center space-x-6 relative"
             onMouseLeave={hideTracker}
           >
             {NAVIGATION_ITEMS.map((item, index) => (
@@ -224,7 +225,7 @@ export const Navbar: React.FC = () => {
             ))}
             <span
               ref={trackerRef}
-              className="underline-tracker absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-indigo-400 to-pink-400 rounded-full"
+              className="underline-tracker absolute -bottom-1 left-0 h-0.5 bg-linear-to-r from-indigo-400 to-pink-400 rounded-full"
               style={{ width: 0 }}
             />
           </div>
@@ -247,18 +248,18 @@ export const Navbar: React.FC = () => {
               onClick={() => setIsOpen(true)}
               aria-label="Abrir menú"
             >
-              <span className="block w-6 h-[2px] bg-indigo-300 rounded-full mb-1.5" />
-              <span className="block w-6 h-[2px] bg-indigo-300 rounded-full my-1.5" />
-              <span className="block w-6 h-[2px] bg-indigo-300 rounded-full mt-1.5" />
+              <span className="block w-6 h-0.5 bg-indigo-300 rounded-full mb-1.5" />
+              <span className="block w-6 h-0.5 bg-indigo-300 rounded-full my-1.5" />
+              <span className="block w-6 h-0.5 bg-indigo-300 rounded-full mt-1.5" />
             </button>
           </div>
         </div>
       </nav>
 
-      {/* SIDEBAR MÓVIL */}
+      {/* SIDEBAR MOVIL */}
       <div
         ref={sidebarRef}
-        className={`fixed top-0 right-0 h-full w-80 bg-gradient-to-b from-[#0a0a15] to-[#050508] backdrop-blur-xl border-l border-indigo-800/30 transform transition-all duration-500 ease-out shadow-2xl shadow-indigo-900/50 ${
+        className={`fixed top-0 right-0 h-full w-80 bg-linear-to-b from-[#0a0a15] to-[#050508] backdrop-blur-xl border-l border-indigo-800/30 transform transition-all duration-500 ease-out shadow-2xl shadow-indigo-900/50 ${
           isOpen ? "translate-x-0 z-50" : "translate-x-full z-40"
         }`}
       >
@@ -276,7 +277,7 @@ export const Navbar: React.FC = () => {
                 className="text-2xl font-extrabold text-white"
                 style={{ fontFamily: "'Clash Display', sans-serif" }}
               >
-                Yendry<span className="text-pink-400">.</span>
+                Yendry<span className="text-indigo-400">.</span>
               </span>
             </button>
             <button
@@ -285,15 +286,15 @@ export const Navbar: React.FC = () => {
               aria-label="Cerrar menú"
             >
               <div className="relative w-5 h-5">
-                <span className="absolute top-1/2 left-0 w-full h-[2px] bg-indigo-300 rounded-full rotate-45 transition-all duration-300 group-hover:bg-pink-400" />
-                <span className="absolute top-1/2 left-0 w-full h-[2px] bg-indigo-300 rounded-full -rotate-45 transition-all duration-300 group-hover:bg-pink-400" />
+                <span className="absolute top-1/2 left-0 w-full h-0.5 bg-indigo-300 rounded-full rotate-45 transition-all duration-300 group-hover:bg-indigo-400" />
+                <span className="absolute top-1/2 left-0 w-full h-0.5 bg-indigo-300 rounded-full -rotate-45 transition-all duration-300 group-hover:bg-indigo-400" />
               </div>
             </button>
           </div>
 
           {/* Frase con borde rosa a la izquierda */}
           <div className="px-6 py-4 border-b border-indigo-800/30">
-            <p className="text-indigo-300/50 text-xs italic leading-relaxed border-l-2 border-pink-500 pl-3">
+            <p className="text-indigo-300/50 text-xs italic leading-relaxed border-l-2 border-indigo-500 pl-3">
               "Codificando el mañana, hoy"
             </p>
           </div>
@@ -319,7 +320,7 @@ export const Navbar: React.FC = () => {
             {/* Botón WhatsApp */}
             <button
               onClick={() => window.open(SOCIAL_LINKS.whatsapp)}
-              className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-emerald-600/20 to-emerald-600/10 border border-emerald-500/30 rounded-xl text-emerald-300 text-sm font-medium hover:from-emerald-600/40 hover:to-emerald-600/30 transition-all hover:scale-105"
+              className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-linear-to-r from-emerald-600/20 to-emerald-600/10 border border-emerald-500/30 rounded-xl text-emerald-300 text-sm font-medium hover:from-emerald-600/40 hover:to-emerald-600/30 transition-all hover:scale-105"
             >
               <WhatsAppIcon className="w-4 h-4" />
               WhatsApp
@@ -369,7 +370,7 @@ export const Navbar: React.FC = () => {
       {!isOpen && (
         <button
           onClick={() => window.open(SOCIAL_LINKS.whatsapp)}
-          className="fixed bottom-6 right-6 z-40 bg-gradient-to-r from-green-500 to-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center animate-[softPulse_2s_ease-in-out_infinite] shadow-lg shadow-green-500/30 sm:hidden hover:scale-110 transition-transform duration-300 hover:shadow-xl hover:shadow-green-500/40"
+          className="fixed bottom-6 right-6 z-40 bg-linear-to-r from-green-500 to-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center animate-[softPulse_2s_ease-in-out_infinite] shadow-lg shadow-green-500/30 sm:hidden hover:scale-110 transition-transform duration-300 hover:shadow-xl hover:shadow-green-500/40"
           aria-label="WhatsApp"
         >
           <WhatsAppIcon className="w-7 h-7" />
@@ -386,7 +387,7 @@ const ScrollProgressBar: React.FC = () => {
 
   return (
     <div
-      className="fixed top-0 left-0 h-1 bg-gradient-to-r from-indigo-600 to-pink-500 z-50 transition-all duration-100"
+      className="fixed top-0 left-0 h-1 bg-linear-to-r from-indigo-600 to-pink-500 z-50 transition-all duration-100"
       style={{ width: `${scrollProgress}%` }}
     />
   );

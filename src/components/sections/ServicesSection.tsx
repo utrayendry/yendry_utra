@@ -213,18 +213,7 @@ export const ServicesSection: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-      >
-        <button
-          onClick={() => {
-            const contactSection = document.getElementById("contact");
-            if (contactSection)
-              contactSection.scrollIntoView({ behavior: "smooth" });
-          }}
-          className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-pink-500 rounded-xl text-white font-medium hover:scale-105 transition-transform shadow-lg shadow-indigo-500/25"
-        >
-          Hablemos de tu proyecto
-        </button>
-      </motion.div>
+      ></motion.div>
     </Section>
   );
 };
