@@ -111,7 +111,7 @@ export const Footer: React.FC = () => {
                 style={{ fontFamily: "'Clash Display', sans-serif" }}
               >
                 Yendry
-                <span className="text-indigo-400 group-hover:text-indigo-300 transition-colors">
+                <span className="text-pink-400 group-hover:text-pink-300 transition-colors">
                   .
                 </span>
               </span>
@@ -120,7 +120,7 @@ export const Footer: React.FC = () => {
               Desarrollador Web Full Stack. Experiencias digitales modernas y
               funcionales.
             </p>
-            <p className="text-indigo-400/60 text-xs italic border-l-2 border-indigo-500/50 pl-2">
+            <p className="text-indigo-400/60 text-xs italic border-l-2 border-pink-500/50 pl-2">
               "Codificando el mañana, hoy"
             </p>
           </div>

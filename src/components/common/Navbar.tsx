@@ -200,7 +200,7 @@ export const Navbar: React.FC = () => {
               style={{ fontFamily: "'Clash Display', sans-serif" }}
             >
               Yendry
-              <span className="text-indigo-400 group-hover:text-indigo-300 transition-colors">
+              <span className="text-pink-400 group-hover:text-pink-300 transition-colors">
                 .
               </span>
             </span>
@@ -277,7 +277,7 @@ export const Navbar: React.FC = () => {
                 className="text-2xl font-extrabold text-white"
                 style={{ fontFamily: "'Clash Display', sans-serif" }}
               >
-                Yendry<span className="text-indigo-400">.</span>
+                Yendry<span className="text-pink-400">.</span>
               </span>
             </button>
             <button
@@ -294,7 +294,7 @@ export const Navbar: React.FC = () => {
 
           {/* Frase con borde rosa a la izquierda */}
           <div className="px-6 py-4 border-b border-indigo-800/30">
-            <p className="text-indigo-300/50 text-xs italic leading-relaxed border-l-2 border-indigo-500 pl-3">
+            <p className="text-indigo-300/50 text-xs italic leading-relaxed border-l-2 border-pink-500 pl-3">
               "Codificando el mañana, hoy"
             </p>
           </div>
