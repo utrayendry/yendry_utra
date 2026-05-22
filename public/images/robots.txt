@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yendry.dev/sitemap.xml

@@ -2,15 +2,13 @@ export interface Project {
   id: string;
   title: string;
   description: string;
-  keyResult?: string; // Resultado tangible (ej: "+35% conversión")
-  benefit?: string; // Beneficio principal (alternativa a keyResult)
+  keyResult?: string;
   image: string;
   technologies: string[];
   demoUrl?: string;
   githubUrl?: string;
   solutionType: "ecommerce" | "landing" | "dashboard" | "corporate";
-  // Mantén category si lo usas en otro lado
-  category?: string;
+  category: string;
 }
 
 export interface Skill {

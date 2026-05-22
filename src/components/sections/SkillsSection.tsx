@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 import { Section, SectionTitle, Card } from "../ui";
 import { SkillBar } from "../ui/SkillBar";
+import { Icon } from "../ui/Icon";
 import { SKILL_CATEGORIES } from "../../constants/skillCategories";
 
 // Configuración de valor por categoría
@@ -141,7 +142,7 @@ export const SkillsSection: React.FC = () => {
         ))}
       </motion.div>
 
-      {/* Diferenciadores clave */}
+      {/* Diferenciadores clave — SIN EMOJIS */}
       <motion.div
         className="mt-12 text-center"
         initial={{ opacity: 0, y: 20 }}
@@ -156,17 +157,23 @@ export const SkillsSection: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {[
             {
-              icon: "⚡",
+              icon: "zap" as const,
+              iconColor: "text-amber-400",
+              iconLabel: "Velocidad",
               title: "Velocidad sin sacrificar calidad",
               desc: "Entrega rápida con código limpio y mantenible. Tu proyecto no se estanca.",
             },
             {
-              icon: "🔒",
+              icon: "shield" as const,
+              iconColor: "text-emerald-400",
+              iconLabel: "Seguridad",
               title: "Seguridad desde el inicio",
               desc: "Protejo tus datos y los de tus usuarios con prácticas de seguridad probadas.",
             },
             {
-              icon: "📈",
+              icon: "trending-up" as const,
+              iconColor: "text-purple-400",
+              iconLabel: "Escalabilidad",
               title: "Escalabilidad garantizada",
               desc: "Tu negocio crece, tu tecnología también. Arquitectura pensada para el futuro.",
             },
@@ -180,8 +187,12 @@ export const SkillsSection: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
             >
-              <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">
-                {item.icon}
+              <div className="mb-3 group-hover:scale-110 transition-transform duration-300 inline-flex">
+                <Icon
+                  name={item.icon}
+                  className={`w-10 h-10 ${item.iconColor}`}
+                  aria-label={item.iconLabel}
+                />
               </div>
               <h4 className="font-bold text-white mb-2 text-lg">
                 {item.title}
