@@ -1,9 +1,97 @@
 import React from "react";
 import { Section, SectionTitle, Card } from "../ui";
-import { Icon } from "../ui/Icon";
+import { Icon, type IconName } from "../ui/Icon";
 import imgOfme from "../../../public/images/1774924704955.png";
 
 export const AboutSection: React.FC = () => {
+  // Datos de clientes ideales con tipos correctos
+  const idealClients: {
+    text: string;
+    icon: IconName;
+    iconColor: string;
+    iconLabel: string;
+  }[] = [
+    {
+      text: "Necesita una web que venda, no que solo 'se vea bonita'",
+      icon: "trending-up",
+      iconColor: "text-emerald-400",
+      iconLabel: "Ventas",
+    },
+    {
+      text: "Quiere mejorar la experiencia de sus usuarios actuales",
+      icon: "users",
+      iconColor: "text-blue-400",
+      iconLabel: "Usuarios",
+    },
+    {
+      text: "Busca escalar sin que el código se vuelva un dolor de cabeza",
+      icon: "chart",
+      iconColor: "text-purple-400",
+      iconLabel: "Escalar",
+    },
+    {
+      text: "Valora la comunicación clara y las entregas a tiempo",
+      icon: "clock",
+      iconColor: "text-amber-400",
+      iconLabel: "Puntualidad",
+    },
+    {
+      text: "Quiere un socio técnico, no solo un 'programador'",
+      icon: "handshake",
+      iconColor: "text-pink-400",
+      iconLabel: "Partnership",
+    },
+    {
+      text: "Está cansado de proyectos que nunca terminan",
+      icon: "ban",
+      iconColor: "text-red-400",
+      iconLabel: "Proyectos sin terminar",
+    },
+  ];
+
+  // Datos de estadísticas con tipos correctos
+  const stats: {
+    value: string;
+    label: string;
+    icon: IconName;
+    iconColor: string;
+    iconLabel: string;
+    detail: string;
+  }[] = [
+    {
+      value: "3+",
+      label: "Años de experiencia",
+      icon: "briefcase",
+      iconColor: "text-indigo-400",
+      iconLabel: "Experiencia",
+      detail: "en proyectos reales",
+    },
+    {
+      value: "12+",
+      label: "Proyectos entregados",
+      icon: "rocket",
+      iconColor: "text-emerald-400",
+      iconLabel: "Proyectos",
+      detail: "a tiempo y presupuesto",
+    },
+    {
+      value: "10+",
+      label: "Clientes satisfechos",
+      icon: "handshake",
+      iconColor: "text-amber-400",
+      iconLabel: "Clientes",
+      detail: "que repiten o recomiendan",
+    },
+    {
+      value: "99.9%",
+      label: "Disponibilidad",
+      icon: "zap",
+      iconColor: "text-purple-400",
+      iconLabel: "Disponibilidad",
+      detail: "comunicación fluida",
+    },
+  ];
+
   return (
     <Section id="why-me" bgColor="dark" className="relative overflow-hidden">
       {/* Differentiated background with subtle gradients */}
@@ -22,30 +110,23 @@ export const AboutSection: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-8 md:gap-10 items-center mb-16">
           {/* LEFT COLUMN: Photo optimized for mobile */}
           <div className="relative group order-1 lg:order-1">
-            {/* Animated glow behind the photo */}
             <div className="absolute -inset-3 md:-inset-4 bg-linear-to-r from-indigo-600 to-purple-500 rounded-2xl md:rounded-3xl opacity-20 blur-xl group-hover:opacity-40 transition-all duration-500 group-hover:blur-2xl" />
 
             <Card
               variant="glass"
               className="relative overflow-hidden rounded-xl md:rounded-2xl bg-linear-to-br from-indigo-950/60 to-purple-950/60 backdrop-blur-sm"
             >
-              {/* Photo container — full width on mobile */}
               <div className="relative w-full overflow-hidden">
                 <img
                   src={imgOfme}
                   alt="Yendry - Desarrollador Full Stack con más de 3 años de experiencia creando soluciones web profesionales"
                   className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
-                  style={{
-                    objectPosition: "center 20%",
-                  }}
+                  style={{ objectPosition: "center 20%" }}
                   loading="lazy"
                 />
-
-                {/* Subtle overlay on hover */}
                 <div className="absolute inset-0 bg-linear-to-t from-indigo-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
 
-              {/* Commitment quote */}
               <div className="p-4 md:p-6 text-center border-t border-indigo-500/20 bg-linear-to-r from-indigo-950/40 to-purple-950/40">
                 <p className="text-indigo-300 text-[10px] md:text-xs uppercase tracking-wider mb-1 md:mb-2 flex items-center justify-center gap-1.5">
                   <Icon
@@ -65,7 +146,7 @@ export const AboutSection: React.FC = () => {
 
           {/* RIGHT COLUMN: 3 main benefits */}
           <div className="flex flex-col gap-4 md:gap-5 order-2 lg:order-2">
-            {/* Benefit 1: Business understanding */}
+            {/* Benefit 1 */}
             <div className="group cursor-default">
               <div className="p-4 md:p-5 rounded-xl bg-linear-to-r from-indigo-900/40 to-purple-900/40 border border-indigo-500/20 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10">
                 <div className="flex items-start gap-3 md:gap-4">
@@ -77,9 +158,9 @@ export const AboutSection: React.FC = () => {
                     />
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-white font-bold text-lg md:text-xl mb-1 md:mb-2">
+                    <h3 className="text-white font-bold text-lg md:text-xl mb-1 md:mb-2">
                       Entiendo tu negocio
-                    </h4>
+                    </h3>
                     <p className="text-indigo-200/80 leading-relaxed text-xs md:text-sm">
                       No empiezo a escribir código sin antes entender quiénes
                       son tus usuarios, cuál es tu propuesta de valor y qué
@@ -90,7 +171,7 @@ export const AboutSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Benefit 2: Results over code */}
+            {/* Benefit 2 */}
             <div className="group cursor-default">
               <div className="p-4 md:p-5 rounded-xl bg-linear-to-r from-indigo-900/40 to-purple-900/40 border border-indigo-500/20 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10">
                 <div className="flex items-start gap-3 md:gap-4">
@@ -102,22 +183,20 @@ export const AboutSection: React.FC = () => {
                     />
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-white font-bold text-lg md:text-xl mb-1 md:mb-2">
+                    <h3 className="text-white font-bold text-lg md:text-xl mb-1 md:mb-2">
                       Resultados, no líneas de código
-                    </h4>
+                    </h3>
                     <p className="text-indigo-200/80 leading-relaxed text-xs md:text-sm">
                       Mido mi éxito por el impacto que genero:{" "}
                       <span className="text-indigo-300 font-medium">
                         mayor conversión
                       </span>
-                      ,
+                      ,{" "}
                       <span className="text-indigo-300 font-medium">
-                        {" "}
                         mejor experiencia de usuario
                       </span>{" "}
-                      y
+                      y{" "}
                       <span className="text-indigo-300 font-medium">
-                        {" "}
                         menor tiempo de carga
                       </span>
                       .
@@ -127,7 +206,7 @@ export const AboutSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Benefit 3: Clear rules */}
+            {/* Benefit 3 */}
             <div className="group cursor-default">
               <div className="p-4 md:p-5 rounded-xl bg-linear-to-r from-indigo-900/40 to-purple-900/40 border border-indigo-500/20 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10">
                 <div className="flex items-start gap-3 md:gap-4">
@@ -139,14 +218,13 @@ export const AboutSection: React.FC = () => {
                     />
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-white font-bold text-lg md:text-xl mb-1 md:mb-2">
+                    <h3 className="text-white font-bold text-lg md:text-xl mb-1 md:mb-2">
                       Trabajo con reglas claras
-                    </h4>
+                    </h3>
                     <p className="text-indigo-200/80 leading-relaxed text-xs md:text-sm">
                       Entregas parciales, comunicación constante y código limpio
-                      que
+                      que{" "}
                       <span className="text-indigo-300 font-medium">
-                        {" "}
                         cualquiera de tu equipo pueda mantener
                       </span>
                       .
@@ -156,7 +234,7 @@ export const AboutSection: React.FC = () => {
               </div>
             </div>
 
-            {/* CV Download — subtle, does not compete with main CTAs */}
+            {/* CV Download */}
             <div className="flex justify-center mt-2">
               <a
                 href="/cv-yendry.pdf"
@@ -189,56 +267,17 @@ export const AboutSection: React.FC = () => {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-            {[
-              {
-                text: "Necesita una web que venda, no que solo 'se vea bonita'",
-                icon: "trending-up" as const,
-                iconColor: "text-emerald-400",
-                iconLabel: "Ventas",
-              },
-              {
-                text: "Quiere mejorar la experiencia de sus usuarios actuales",
-                icon: "users" as const,
-                iconColor: "text-blue-400",
-                iconLabel: "Usuarios",
-              },
-              {
-                text: "Busca escalar sin que el código se vuelva un dolor de cabeza",
-                icon: "chart" as const,
-                iconColor: "text-purple-400",
-                iconLabel: "Escalar",
-              },
-              {
-                text: "Valora la comunicación clara y las entregas a tiempo",
-                icon: "clock" as const,
-                iconColor: "text-amber-400",
-                iconLabel: "Puntualidad",
-              },
-              {
-                text: "Quiere un socio técnico, no solo un 'programador'",
-                icon: "handshake" as const,
-                iconColor: "text-pink-400",
-                iconLabel: "Partnership",
-              },
-              {
-                text: "Está cansado de proyectos que nunca terminan",
-                icon: "ban" as const,
-                iconColor: "text-red-400",
-                iconLabel: "Proyectos sin terminar",
-              },
-            ].map((item, i) => (
+            {idealClients.map((item, i) => (
               <div
                 key={i}
                 className="group p-3 md:p-4 rounded-xl bg-indigo-900/20 border border-indigo-500/10 hover:border-indigo-500/30 hover:bg-indigo-900/30 transition-all duration-300 cursor-default hover:scale-[1.02]"
               >
                 <div className="flex items-start gap-2 md:gap-3">
-                  <span className="group-hover:scale-110 transition-transform duration-300 shrink-0">
-                    <Icon
-                      name={item.icon}
-                      className={`w-5 h-5 md:w-6 md:h-6 ${item.iconColor}`}
-                      aria-label={item.iconLabel}
-                    />
-                  </span>
+                  <Icon
+                    name={item.icon}
+                    className={`w-5 h-5 md:w-6 md:h-6 ${item.iconColor} group-hover:scale-110 transition-transform duration-300 shrink-0`}
+                    aria-label={item.iconLabel}
+                  />
                   <span className="text-indigo-200/80 text-xs md:text-sm leading-relaxed">
                     {item.text}
                   </span>
@@ -261,40 +300,7 @@ export const AboutSection: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-            {[
-              {
-                value: "3+",
-                label: "Años de experiencia",
-                icon: "briefcase" as const,
-                iconColor: "text-indigo-400",
-                iconLabel: "Experiencia",
-                detail: "en proyectos reales",
-              },
-              {
-                value: "12+",
-                label: "Proyectos entregados",
-                icon: "rocket" as const,
-                iconColor: "text-emerald-400",
-                iconLabel: "Proyectos",
-                detail: "a tiempo y presupuesto",
-              },
-              {
-                value: "10+",
-                label: "Clientes satisfechos",
-                icon: "handshake" as const,
-                iconColor: "text-amber-400",
-                iconLabel: "Clientes",
-                detail: "que repiten o recomiendan",
-              },
-              {
-                value: "99.9%",
-                label: "Disponibilidad",
-                icon: "zap" as const,
-                iconColor: "text-purple-400",
-                iconLabel: "Disponibilidad",
-                detail: "comunicación fluida",
-              },
-            ].map((stat) => (
+            {stats.map((stat) => (
               <Card
                 key={stat.label}
                 variant="gradient"

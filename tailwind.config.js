@@ -1,3 +1,4 @@
+// tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -19,6 +20,7 @@ export default {
         },
       },
       animation: {
+        // Existing animations
         'gradient-shift': 'gradientShift 8s ease infinite',
         'pulse-glow': 'pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'blob': 'blob 7s infinite',
@@ -26,6 +28,11 @@ export default {
         'fade-in-up': 'fadeInUp 0.9s ease-out',
         'fade-in-left': 'fadeInLeft 0.9s ease-out',
         'fade-in-right': 'fadeInRight 0.9s ease-out',
+        // New optimized animations
+        'float': 'float 4s ease-in-out infinite',
+        'soft-bounce': 'softBounce 3s ease-in-out infinite',
+        'float-code': 'floatCode 6s ease-in-out infinite',
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
         gradientShift: {
@@ -57,23 +64,6 @@ export default {
           '0%': { opacity: '0', transform: 'translateX(30px)' },
           '100%': { opacity: '1', transform: 'translateX(0)' },
         },
-      },
-    },
-  },
-  plugins: [],
-};
-
-
-module.exports = {
-  theme: {
-    extend: {
-      animation: {
-        'float': 'float 4s ease-in-out infinite',
-        'soft-bounce': 'softBounce 3s ease-in-out infinite',
-        'float-code': 'floatCode 6s ease-in-out infinite',
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-      },
-      keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-10px)' },
@@ -89,4 +79,5 @@ module.exports = {
       },
     },
   },
+  plugins: [],
 }

@@ -2,10 +2,9 @@ import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 import { Section, SectionTitle, Card } from "../ui";
 import { SkillBar } from "../ui/SkillBar";
-import { Icon } from "../ui/Icon";
+import { Icon, type IconName } from "../ui/Icon";
 import { SKILL_CATEGORIES } from "../../constants/skillCategories";
 
-// Configuración de valor por categoría
 const CATEGORY_VALUES = {
   "Lenguajes de Programación": {
     description:
@@ -33,22 +32,17 @@ const CATEGORY_VALUES = {
   },
 };
 
-// Componente para cada categoría
 const SkillCategoryCard: React.FC<{
   categoryName: string;
   skills: (typeof SKILL_CATEGORIES)[0]["skills"];
   index: number;
 }> = ({ categoryName, skills, index }) => {
-  // Calcular promedio de proficiencia
   const categoryAverage = Math.round(
     skills.reduce((acc, skill) => acc + skill.proficiency, 0) / skills.length,
   );
-
   const categoryValue = CATEGORY_VALUES[
     categoryName as keyof typeof CATEGORY_VALUES
-  ] || {
-    description: "Habilidades profesionales listas para tu proyecto.",
-  };
+  ] || { description: "Habilidades profesionales listas para tu proyecto." };
 
   return (
     <motion.div
@@ -61,7 +55,6 @@ const SkillCategoryCard: React.FC<{
         variant="gradient"
         className="h-full p-5 sm:p-6 rounded-2xl backdrop-blur-md border border-indigo-500/20 hover:border-pink-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 group"
       >
-        {/* Encabezado */}
         <div className="flex items-center justify-between gap-2 mb-3">
           <div className="flex items-center gap-2 min-w-0">
             <div className="min-w-0">
@@ -78,13 +71,9 @@ const SkillCategoryCard: React.FC<{
             <p className="text-xs text-indigo-300">Dominio</p>
           </div>
         </div>
-
-        {/* Descripción de valor */}
         <p className="text-indigo-300/80 text-xs sm:text-sm mb-4 leading-relaxed border-l-2 border-pink-500/50 pl-3">
           {categoryValue.description}
         </p>
-
-        {/* Todas las habilidades */}
         <div className="space-y-2">
           {skills.map((skill, idx) => (
             <motion.div
@@ -111,14 +100,43 @@ const SkillCategoryCard: React.FC<{
 export const SkillsSection: React.FC = () => {
   const categoriesData = useMemo(() => SKILL_CATEGORIES, []);
 
+  // Diferenciadores con tipos correctos
+  const differentiators: {
+    icon: IconName;
+    iconColor: string;
+    iconLabel: string;
+    title: string;
+    desc: string;
+  }[] = [
+    {
+      icon: "zap",
+      iconColor: "text-amber-400",
+      iconLabel: "Velocidad",
+      title: "Velocidad sin sacrificar calidad",
+      desc: "Entrega rápida con código limpio y mantenible. Tu proyecto no se estanca.",
+    },
+    {
+      icon: "shield",
+      iconColor: "text-emerald-400",
+      iconLabel: "Seguridad",
+      title: "Seguridad desde el inicio",
+      desc: "Protejo tus datos y los de tus usuarios con prácticas de seguridad probadas.",
+    },
+    {
+      icon: "trending-up",
+      iconColor: "text-purple-400",
+      iconLabel: "Escalabilidad",
+      title: "Escalabilidad garantizada",
+      desc: "Tu negocio crece, tu tecnología también. Arquitectura pensada para el futuro.",
+    },
+  ];
+
   return (
     <Section id="skills" bgColor="dark">
       <SectionTitle
         title="Tecnología que transforma ideas en resultados"
         subtitle="No solo domino tecnologías. Las uso estratégicamente para construir soluciones que resuelven problemas reales y generan valor para tu negocio."
       />
-
-      {/* Grid de categorías */}
       <motion.div
         className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 mb-16"
         initial="hidden"
@@ -141,8 +159,6 @@ export const SkillsSection: React.FC = () => {
           />
         ))}
       </motion.div>
-
-      {/* Diferenciadores clave — SIN EMOJIS */}
       <motion.div
         className="mt-12 text-center"
         initial={{ opacity: 0, y: 20 }}
@@ -153,31 +169,8 @@ export const SkillsSection: React.FC = () => {
         <h3 className="text-2xl sm:text-3xl font-bold text-white mb-8">
           Más que código
         </h3>
-
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          {[
-            {
-              icon: "zap" as const,
-              iconColor: "text-amber-400",
-              iconLabel: "Velocidad",
-              title: "Velocidad sin sacrificar calidad",
-              desc: "Entrega rápida con código limpio y mantenible. Tu proyecto no se estanca.",
-            },
-            {
-              icon: "shield" as const,
-              iconColor: "text-emerald-400",
-              iconLabel: "Seguridad",
-              title: "Seguridad desde el inicio",
-              desc: "Protejo tus datos y los de tus usuarios con prácticas de seguridad probadas.",
-            },
-            {
-              icon: "trending-up" as const,
-              iconColor: "text-purple-400",
-              iconLabel: "Escalabilidad",
-              title: "Escalabilidad garantizada",
-              desc: "Tu negocio crece, tu tecnología también. Arquitectura pensada para el futuro.",
-            },
-          ].map((item, idx) => (
+          {differentiators.map((item, idx) => (
             <motion.div
               key={idx}
               className="p-6 rounded-xl bg-gradient-to-br from-indigo-900/30 to-purple-900/20 border border-indigo-500/20 hover:border-pink-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 group cursor-default"
@@ -204,8 +197,6 @@ export const SkillsSection: React.FC = () => {
           ))}
         </div>
       </motion.div>
-
-      {/* CTA final */}
       <motion.div
         className="text-center mt-16"
         initial={{ opacity: 0, y: 20 }}
@@ -214,11 +205,11 @@ export const SkillsSection: React.FC = () => {
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         <button
-          onClick={() => {
-            const contactSection = document.getElementById("contact");
-            if (contactSection)
-              contactSection.scrollIntoView({ behavior: "smooth" });
-          }}
+          onClick={() =>
+            document
+              .getElementById("contact")
+              ?.scrollIntoView({ behavior: "smooth" })
+          }
           className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-pink-500 rounded-xl text-white font-medium hover:scale-105 transition-transform shadow-lg shadow-indigo-500/25"
         >
           Hablemos de tu proyecto

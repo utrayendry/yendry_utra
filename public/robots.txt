@@ -1,0 +1,7 @@
+﻿User-agent: *
+Allow: /
+Sitemap: https://yendry-utra.vercel.app/sitemap.xml
+
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/

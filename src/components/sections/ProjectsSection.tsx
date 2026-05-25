@@ -6,10 +6,6 @@ import type { IconName } from "../ui/Icon";
 import { PROJECTS } from "../../constants";
 import type { Project } from "../../types";
 
-/**
- * Category configuration with icons and colors.
- * Each category has a distinct visual identity.
- */
 const CATEGORIES: {
   id: string;
   label: string;
@@ -47,17 +43,9 @@ const CATEGORIES: {
   },
 ];
 
-/**
- * Category config for project cards.
- */
 const PROJECT_CONFIG: Record<
   string,
-  {
-    badge: string;
-    gradient: string;
-    icon: IconName;
-    iconColor: string;
-  }
+  { badge: string; gradient: string; icon: IconName; iconColor: string }
 > = {
   fullstack: {
     badge: "Full-Stack",
@@ -79,7 +67,6 @@ const PROJECT_CONFIG: Record<
   },
 };
 
-// ─── Optimized Image Component ────────────────────────
 const OptimizedImage: React.FC<{
   src: string;
   alt: string;
@@ -106,15 +93,14 @@ const OptimizedImage: React.FC<{
         decoding="async"
         className={`${className} transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"}`}
         onLoad={() => setIsLoaded(true)}
-        onError={() => {
-          setImgSrc("https://placehold.co/600x400/1e1b4b/818cf8?text=Proyecto");
-        }}
+        onError={() =>
+          setImgSrc("https://placehold.co/600x400/1e1b4b/818cf8?text=Proyecto")
+        }
       />
     </div>
   );
 };
 
-// ─── Project Card ─────────────────────────────────────
 const ProjectCard = React.memo<{ project: Project; index: number }>(
   ({ project, index }) => {
     const config = PROJECT_CONFIG[project.category] || {
@@ -123,10 +109,8 @@ const ProjectCard = React.memo<{ project: Project; index: number }>(
       icon: "sparkles" as IconName,
       iconColor: "text-indigo-400",
     };
-
-    const getImagePath = (projectId: string) => {
-      return `/src/assets/projects/${projectId}.webp`;
-    };
+    const getImagePath = (projectId: string) =>
+      `/src/assets/projects/${projectId}.webp`;
 
     return (
       <motion.div
@@ -137,15 +121,12 @@ const ProjectCard = React.memo<{ project: Project; index: number }>(
         whileHover={{ y: -6 }}
       >
         <Card className="group h-full overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-950/40 to-purple-950/40 border border-indigo-500/20 hover:border-indigo-500/40 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 flex flex-col">
-          {/* ─── Image ────────────────────────────────── */}
           <div className="relative h-48 sm:h-52 overflow-hidden flex-shrink-0 bg-indigo-900/30">
             <OptimizedImage
               src={getImagePath(project.id)}
               alt={project.title}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-
-            {/* Category badge — top left */}
             <div className="absolute top-3 left-3">
               <span
                 className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${config.gradient} backdrop-blur-sm text-white border border-white/15`}
@@ -159,20 +140,13 @@ const ProjectCard = React.memo<{ project: Project; index: number }>(
               </span>
             </div>
           </div>
-
-          {/* ─── Content ──────────────────────────────── */}
           <div className="p-4 sm:p-5 flex flex-col flex-grow">
-            {/* Title */}
             <h3 className="font-bold text-lg sm:text-xl text-white mb-2 line-clamp-1">
               {project.title}
             </h3>
-
-            {/* Description */}
             <p className="text-indigo-200/70 text-xs sm:text-sm leading-relaxed mb-3 line-clamp-2 flex-grow">
               {project.description}
             </p>
-
-            {/* Technologies */}
             <div className="flex flex-wrap gap-1 mb-4">
               {project.technologies.slice(0, 4).map((tech) => (
                 <span
@@ -188,8 +162,6 @@ const ProjectCard = React.memo<{ project: Project; index: number }>(
                 </span>
               )}
             </div>
-
-            {/* Actions */}
             <div className="flex gap-2 mt-auto pt-3 border-t border-indigo-800/20">
               {project.demoUrl && (
                 <a
@@ -217,7 +189,6 @@ const ProjectCard = React.memo<{ project: Project; index: number }>(
                   Código
                 </a>
               )}
-              {/* Fallback when no links */}
               {!project.demoUrl && !project.githubUrl && (
                 <button
                   className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg bg-indigo-600/10 border border-indigo-500/20 text-indigo-300/60 text-xs font-medium cursor-default"
@@ -237,24 +208,26 @@ const ProjectCard = React.memo<{ project: Project; index: number }>(
 
 ProjectCard.displayName = "ProjectCard";
 
-// ─── Projects Section ─────────────────────────────────
 export const ProjectsSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState("all");
-
-  const filteredProjects = useMemo(() => {
-    return activeCategory === "all"
-      ? PROJECTS
-      : PROJECTS.filter((project) => project.category === activeCategory);
-  }, [activeCategory]);
-
-  const handleCategoryChange = useCallback((categoryId: string) => {
-    setActiveCategory(categoryId);
-  }, []);
-
-  const handleContactClick = useCallback(() => {
-    const contactSection = document.getElementById("contact");
-    if (contactSection) contactSection.scrollIntoView({ behavior: "smooth" });
-  }, []);
+  const filteredProjects = useMemo(
+    () =>
+      activeCategory === "all"
+        ? PROJECTS
+        : PROJECTS.filter((project) => project.category === activeCategory),
+    [activeCategory],
+  );
+  const handleCategoryChange = useCallback(
+    (categoryId: string) => setActiveCategory(categoryId),
+    [],
+  );
+  const handleContactClick = useCallback(
+    () =>
+      document
+        .getElementById("contact")
+        ?.scrollIntoView({ behavior: "smooth" }),
+    [],
+  );
 
   return (
     <Section id="projects" bgColor="darker">
@@ -262,8 +235,6 @@ export const ProjectsSection: React.FC = () => {
         title="Proyectos que hablan por sí mismos"
         subtitle="Cada proyecto resuelve un problema real. Aquí tienes una muestra de mi trabajo con tecnologías modernas y enfoque en resultados."
       />
-
-      {/* ─── Category Pills ──────────────────────────── */}
       <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-14">
         {CATEGORIES.map((cat) => {
           const isActive = activeCategory === cat.id;
@@ -271,16 +242,11 @@ export const ProjectsSection: React.FC = () => {
             cat.id === "all"
               ? PROJECTS.length
               : PROJECTS.filter((p) => p.category === cat.id).length;
-
           return (
             <button
               key={cat.id}
               onClick={() => handleCategoryChange(cat.id)}
-              className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ${
-                isActive
-                  ? `bg-gradient-to-r ${cat.activeBg} text-white shadow-lg shadow-indigo-500/20`
-                  : "bg-indigo-900/20 text-indigo-300 hover:bg-indigo-900/40 border border-indigo-800/30"
-              }`}
+              className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ${isActive ? `bg-gradient-to-r ${cat.activeBg} text-white shadow-lg shadow-indigo-500/20` : "bg-indigo-900/20 text-indigo-300 hover:bg-indigo-900/40 border border-indigo-800/30"}`}
             >
               <Icon
                 name={cat.icon}
@@ -289,11 +255,7 @@ export const ProjectsSection: React.FC = () => {
               />
               <span>{cat.label}</span>
               <span
-                className={`text-xs ml-1 px-1.5 py-0.5 rounded-full ${
-                  isActive
-                    ? "bg-white/20"
-                    : "bg-indigo-800/30 text-indigo-400/60"
-                }`}
+                className={`text-xs ml-1 px-1.5 py-0.5 rounded-full ${isActive ? "bg-white/20" : "bg-indigo-800/30 text-indigo-400/60"}`}
               >
                 {count}
               </span>
@@ -301,8 +263,6 @@ export const ProjectsSection: React.FC = () => {
           );
         })}
       </div>
-
-      {/* ─── Project Grid ────────────────────────────── */}
       <AnimatePresence mode="wait">
         <motion.div
           key={activeCategory}
@@ -317,8 +277,6 @@ export const ProjectsSection: React.FC = () => {
           ))}
         </motion.div>
       </AnimatePresence>
-
-      {/* ─── Empty State ─────────────────────────────── */}
       {filteredProjects.length === 0 && (
         <motion.div
           className="text-center py-16"
@@ -344,8 +302,6 @@ export const ProjectsSection: React.FC = () => {
           </p>
         </motion.div>
       )}
-
-      {/* ─── CTA ──────────────────────────────────────── */}
       <motion.div
         className="text-center mt-14 sm:mt-16"
         initial={{ opacity: 0 }}

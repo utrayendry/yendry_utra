@@ -1,11 +1,9 @@
-import { lazy, Suspense } from "react";
+// src/App.tsx
+import { Suspense, lazy } from "react";
 import { Navbar, Footer } from "./components/common";
+import { ErrorBoundary } from "./components/common/ErrorBoundary";
 
-/**
- * Lazy-load all sections for code splitting.
- * Each section is loaded only when it enters the viewport.
- * This reduces initial bundle size significantly.
- */
+// Lazy-load all sections for code splitting
 const HeroSection = lazy(() =>
   import("./components/sections/HeroSection").then((m) => ({
     default: m.HeroSection,
@@ -37,11 +35,8 @@ const ContactSection = lazy(() =>
   })),
 );
 
-/**
- * Fallback for lazy-loaded sections.
- * Shows a subtle pulse animation while the section loads.
- */
-const SectionFallback: React.FC = () => (
+// Fallback component for lazy-loaded sections
+const SectionFallback = () => (
   <div className="py-24 flex items-center justify-center">
     <div className="w-8 h-8 border-2 border-indigo-500/30 border-t-indigo-500 rounded-full animate-spin" />
   </div>
@@ -49,46 +44,32 @@ const SectionFallback: React.FC = () => (
 
 function App() {
   return (
-    <div className="bg-[#0a0a15] text-gray-200 overflow-x-hidden">
-      {/* Navbar — loaded immediately (critical for UX) */}
-      <Navbar />
-
-      {/* Main Content */}
-      <main>
-        {/* Hero — critical, loads first */}
-        <Suspense fallback={<SectionFallback />}>
-          <HeroSection />
-        </Suspense>
-
-        {/* About */}
-        <Suspense fallback={<SectionFallback />}>
-          <AboutSection />
-        </Suspense>
-
-        {/* Projects */}
-        <Suspense fallback={<SectionFallback />}>
-          <ProjectsSection />
-        </Suspense>
-
-        {/* Skills */}
-        <Suspense fallback={<SectionFallback />}>
-          <SkillsSection />
-        </Suspense>
-
-        {/* Services */}
-        <Suspense fallback={<SectionFallback />}>
-          <ServicesSection />
-        </Suspense>
-
-        {/* Contact */}
-        <Suspense fallback={<SectionFallback />}>
-          <ContactSection />
-        </Suspense>
-      </main>
-
-      {/* Footer */}
-      <Footer />
-    </div>
+    <ErrorBoundary>
+      <div className="bg-[#0a0a15] text-gray-200 overflow-x-hidden">
+        <Navbar />
+        <main>
+          <Suspense fallback={<SectionFallback />}>
+            <HeroSection />
+          </Suspense>
+          <Suspense fallback={<SectionFallback />}>
+            <AboutSection />
+          </Suspense>
+          <Suspense fallback={<SectionFallback />}>
+            <ProjectsSection />
+          </Suspense>
+          <Suspense fallback={<SectionFallback />}>
+            <SkillsSection />
+          </Suspense>
+          <Suspense fallback={<SectionFallback />}>
+            <ServicesSection />
+          </Suspense>
+          <Suspense fallback={<SectionFallback />}>
+            <ContactSection />
+          </Suspense>
+        </main>
+        <Footer />
+      </div>
+    </ErrorBoundary>
   );
 }
 

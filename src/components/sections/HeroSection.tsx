@@ -3,27 +3,10 @@ import { useSmoothScroll } from "../../hooks/useSmoothScroll";
 import { Icon } from "../ui/Icon";
 import img from "../../../public/images/1735482116425.jpg";
 
-/**
- * Hero section — optimized for performance and conversion.
- *
- * Performance optimizations:
- * - Image preloaded in index.html with fetchPriority="high"
- * - Eager loading with async decoding (non-blocking)
- * - Explicit width/height to prevent layout shift (CLS)
- * - Decorative blobs hidden on mobile (reduce GPU usage)
- * - will-change-transform on animated elements
- *
- * UX optimizations:
- * - Primary CTA: "¿Cómo te ayudo?" — prominent, gradient background
- * - Secondary CTA: "Hablemos" — outline style, lighter visual weight
- * - Clear value proposition in headline
- * - SVG icons instead of Font Awesome (zero external dependencies)
- */
 export const HeroSection: React.FC = () => {
   const { scrollToElement } = useSmoothScroll();
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
-  // Preload imagen crítica
   useEffect(() => {
     const image = new Image();
     image.src = img;
@@ -33,34 +16,27 @@ export const HeroSection: React.FC = () => {
   return (
     <section
       id="home"
-      className="
-        min-h-screen flex items-center justify-center 
-        relative overflow-hidden pt-32 pb-28
-        animate-[fadeSlideUp_0.8s_ease-out]
-      "
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-32 pb-28 animate-[fadeSlideUp_0.8s_ease-out]"
     >
-      {/* ─── Background Image ────────────────────────── */}
+      {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
           src={img}
           alt="Fondo profesional de desarrollo web — Yendry, Full Stack Developer"
           width={1920}
           height={1080}
-          className={`w-full h-full object-cover transition-opacity duration-700 ${
-            isImageLoaded ? "opacity-100" : "opacity-0"
-          }`}
+          className={`w-full h-full object-cover transition-opacity duration-700 ${isImageLoaded ? "opacity-100" : "opacity-0"}`}
           loading="eager"
           fetchPriority="high"
           decoding="async"
         />
-        {/* Overlay en capa separada para mejor rendimiento */}
         <div
           className="absolute inset-0 bg-gradient-to-br from-[#0a0a15]/88 to-[#0a0a15]/88"
           aria-hidden="true"
         />
       </div>
 
-      {/* ─── Decorative Blobs ──────────────────────────── */}
+      {/* Decorative Blobs */}
       <div
         className="absolute -top-20 -right-20 w-72 h-72 bg-indigo-600/20 rounded-full blur-3xl animate-blob hidden md:block will-change-transform"
         aria-hidden="true"
@@ -70,9 +46,8 @@ export const HeroSection: React.FC = () => {
         aria-hidden="true"
       />
 
-      {/* ─── Content ──────────────────────────────────── */}
+      {/* Content */}
       <div className="max-w-4xl mx-auto px-6 text-center relative z-20">
-        {/* Headline principal */}
         <h1
           className="text-5xl md:text-7xl font-extrabold leading-tight mb-6 animate-fade-in"
           style={{ animationDelay: "0.2s" }}
@@ -83,7 +58,6 @@ export const HeroSection: React.FC = () => {
           </span>
         </h1>
 
-        {/* Subheadline */}
         <p
           className="text-indigo-200/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in"
           style={{ animationDelay: "0.4s" }}
@@ -94,52 +68,24 @@ export const HeroSection: React.FC = () => {
           desde el primer clic.
         </p>
 
-        {/* ─── CTAs — Diseño profesional ──────────────── */}
+        {/* CTAs */}
         <div
           className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in"
           style={{ animationDelay: "0.6s" }}
         >
-          {/* Primary CTA: ¿Cómo te ayudo? — Prominente */}
           <button
             type="button"
             onClick={() => scrollToElement("why-me")}
-            className="
-              inline-flex items-center justify-center gap-2.5
-              px-8 py-4 
-              text-base sm:text-lg font-semibold
-              rounded-xl
-              bg-gradient-to-r from-indigo-600 to-pink-600
-              text-white
-              shadow-lg shadow-indigo-500/25
-              hover:shadow-xl hover:shadow-pink-500/30
-              hover:scale-[1.03]
-              active:scale-[0.98]
-              transition-all duration-300
-              focus:outline-none focus:ring-4 focus:ring-indigo-400/40
-            "
+            className="inline-flex items-center justify-center gap-2.5 px-8 py-4 text-base sm:text-lg font-semibold rounded-xl bg-gradient-to-r from-indigo-600 to-pink-600 text-white shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-pink-500/30 hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-indigo-400/40"
           >
             <Icon name="zap" className="w-5 h-5" aria-hidden="true" />
             ¿Cómo te ayudo?
           </button>
 
-          {/* Secondary CTA: Hablemos — Sutil */}
           <button
             type="button"
             onClick={() => scrollToElement("contact")}
-            className="
-              inline-flex items-center justify-center gap-2.5
-              px-8 py-4
-              text-base sm:text-lg font-medium
-              rounded-xl
-              bg-white/5 backdrop-blur-sm
-              text-white
-              border-2 border-white/20
-              hover:bg-white/10 hover:border-white/30
-              hover:scale-[1.03]
-              active:scale-[0.98]
-              transition-all duration-300
-              focus:outline-none focus:ring-4 focus:ring-white/20
-            "
+            className="inline-flex items-center justify-center gap-2.5 px-8 py-4 text-base sm:text-lg font-medium rounded-xl bg-white/5 backdrop-blur-sm text-white border-2 border-white/20 hover:bg-white/10 hover:border-white/30 hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-white/20"
           >
             <Icon
               name="message-circle"
@@ -151,7 +97,6 @@ export const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      {/* ─── Bottom Gradient ──────────────────────────── */}
       <div
         className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-[#0a0a15] to-transparent z-10"
         aria-hidden="true"
