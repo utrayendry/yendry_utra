@@ -28,6 +28,7 @@ export const Navbar: React.FC = () => {
   const navRef = useRef<HTMLDivElement | null>(null);
   const trackerRef = useRef<HTMLSpanElement | null>(null);
   const sidebarRef = useRef<HTMLDivElement | null>(null);
+  const hamburgerRef = useRef<HTMLButtonElement | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
 
   // ─── Click outside to close drawer ──────────────────
@@ -36,7 +37,9 @@ export const Navbar: React.FC = () => {
       if (
         isOpen &&
         sidebarRef.current &&
-        !sidebarRef.current.contains(event.target as Node)
+        !sidebarRef.current.contains(event.target as Node) &&
+        hamburgerRef.current &&
+        !hamburgerRef.current.contains(event.target as Node)
       ) {
         setIsOpen(false);
       }
@@ -212,6 +215,7 @@ export const Navbar: React.FC = () => {
 
             {/* ─── Hamburger → ✕ Animation ──────────────── */}
             <button
+              ref={hamburgerRef}
               onClick={() => setIsOpen(!isOpen)}
               className="md:hidden flex flex-col justify-center items-center w-10 h-10 relative z-50"
               aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
@@ -267,7 +271,7 @@ export const Navbar: React.FC = () => {
             </button>
           </div>
 
-          {/* ─── Frase ────────────────────────────────────── */}
+          {/* ─── Phrase ────────────────────────────────────── */}
           <div className="px-5 py-3 border-b border-indigo-800/30">
             <p className="text-indigo-300/50 text-xs italic leading-relaxed border-l-2 border-pink-500 pl-3">
               "Codificando el mañana, hoy"
